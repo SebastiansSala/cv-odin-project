@@ -1,0 +1,180 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+}
+
+.header{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 70px;
+  padding: 15px;
+  justify-content: space-around;
+  color: #F9faf8;
+}
+
+.header .logo{
+  justify-self: flex-start;
+  font-size: 24px;
+  margin-left: 120px;
+}
+
+.header ul{
+  display: flex;
+  gap: 2rem;
+  margin-right: 100px;
+}
+
+.header li{
+  list-style-type: none;
+}
+
+.header a:link{
+  text-decoration: none;
+  color: white;
+}
+
+.header a:visited{
+  color: white;
+}
+
+.header a{
+  font-size: 24px;
+}
+
+.main{
+  display: flex;
+  margin-top: 70px;
+  padding-top: 70px;
+  width: 100%;
+  height: 400px;
+  justify-content: center;
+  gap: 20px;
+}
+
+.main .main-text{
+  font-size: 48px;
+  font-weight: bolder;
+  color: #f9faf8;
+  max-width: 500px;
+}
+
+.main .secondary-text{
+  font-size: 18px;
+  color: #e5e7eb;
+  max-width: 400px;
+}
+
+
+.dark-background{
+  background-color: #1f2937;
+}
+
+.img{
+  display: flex;
+  background-color: gray;
+  width: 500px;
+  height: 250px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.img p{
+  font-size: 20px;
+}
+
+button{
+  background-color: #3882f6;
+  width: 150px;
+  border: none;
+  border-radius: 1ch;
+  color: white;
+  margin-top: 10px;
+  font-size: 20px;
+  height: 35px;
+}
+
+.section-2{
+  width: 100%;
+  background-color: white;
+  height: 450px;
+  padding-top: 50px;
+}
+
+.section-2_title{
+  display: block;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bolder;
+}
+
+.box-parent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.box-group{
+  width: 200px;
+  margin-top: 40px;
+  height: 200px;
+}
+
+.box-img{
+  width: 80%;
+  height: 160px;
+  border-radius: 10%;
+  border: 5px #3882f6 solid;
+}
+
+.box-group > p{
+  margin-top: 10px;
+  text-align: center;
+  max-width: 160px;
+}
+
+.section-3{
+  width: 100%;
+  background-color: #e5e7eb;
+  height: 400px;
+}
+
+.section-4{
+  height: 350px;
+  background-color: white;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.box-4{
+  background-color: #3882f6;
+  border-radius: 1ch;
+  display: flex;
+  width: 60%;
+  height: 150px;
+  justify-content: space-evenly;
+  align-items: center;
+} 
+
+.box-4 button{
+  width: 150px;
+  color: white;
+  border: 2px solid white;
+  margin-top: 10px;
+  font-size: 20px;
+  height: 35px;
+}
+
+.footer{
+  height: 100px;
+}
