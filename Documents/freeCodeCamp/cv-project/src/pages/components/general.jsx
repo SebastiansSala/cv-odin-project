@@ -19,7 +19,6 @@ export default class General extends Component {
 
     return (
       <div className="w-10/12 border p-10">
-        <h3 className="text-2xl">Personal Details</h3>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

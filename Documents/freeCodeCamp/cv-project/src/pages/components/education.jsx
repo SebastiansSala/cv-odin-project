@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DeleteButton from "./delete";
 
 export default class Education extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class Education extends Component {
     return (
       <div className="w-10/12 border p-10">
         <h3 className="text-2xl">Personal Details</h3>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
             type="text"
             name="descripcion"
@@ -30,7 +31,6 @@ export default class Education extends Component {
             value={places}
             onChange={this.handleChange}
             className="w-full border-2 border-gray-600 mb-2 px-6"
-            border-gray-600
           ></input>
           <input
             type="text"
@@ -39,6 +39,7 @@ export default class Education extends Component {
             onChange={this.handleChange}
             className="w-full border-2 border-gray-600 mb-2 px-6"
           ></input>
+          <DeleteButton handleDelete={this.props.handleDelete} key={this.props.key}></DeleteButton>
         </form>
       </div>
     );

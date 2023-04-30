@@ -29,7 +29,6 @@ export default class Work extends Component {
             value={jobDesc}
             onChange={this.handleChange}
             className="w-full border-2 border-gray-600 mb-2 px-6"
-            border-gray-600
           ></input>
           <input
             type="text"
@@ -37,7 +36,6 @@ export default class Work extends Component {
             value={company}
             onChange={this.handleChange}
             className="w-full border-2 border-gray-600 mb-2 px-6"
-            border-gray-600
           ></input>
           <input
             type="text"
