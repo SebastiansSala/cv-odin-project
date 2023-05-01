@@ -15,10 +15,11 @@ export default class General extends Component {
   };
 
   render() {
+
     const { name, tel, email, place, desc, jobTitle } = this.props.personal;
 
     return (
-      <div className="w-10/12 border p-10">
+      <div className="w-10/12 p-10">
         <h3 className="text-3xl mb-4">Personal Information</h3>
         <form onSubmit={this.handleSubmit}>
           <input

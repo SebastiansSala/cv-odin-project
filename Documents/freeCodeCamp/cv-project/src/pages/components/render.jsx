@@ -71,7 +71,7 @@ export default class Render extends Component {
           </h3>
           {this.props.educationList.map((elem, index) => {
             return (
-              <div className="flex justify-between mt-4">
+              <div className="flex justify-between mt-4" key={index}>
                 <p className="max-w-auto">{elem.descripcion}</p>
                 <div className="flex">
                   <p className="pr-2 border-r-2 border-black">{elem.places}</p>

@@ -18,7 +18,7 @@ export default class Work extends Component {
     const { position, jobDesc, company, dateJob } = this.props.work;
 
     return (
-      <div className="w-10/12 border p-10">
+      <div className="w-10/12 p-10">
         <h3 className="text-3xl mb-4">Work Experience</h3>
         <form onSubmit={this.handleSubmit}>
           <input
@@ -54,7 +54,7 @@ export default class Work extends Component {
             placeholder="Date"
           ></input>
           <button className="bg-indigo-500 hover:bg-indigo-200 transition mr-8 rounded px-4 py-1">Add</button>
-          <DeleteButton handleDelete={this.props.handleDelete} id={this.props.id}></DeleteButton>
+          <DeleteButton handleDelete={this.props.handleDelete} id={this.props.id} work={this.props.work}></DeleteButton>
         </form>
       </div>
     );

@@ -70,6 +70,7 @@ export default class Home extends Component {
   };
 
   handleSubmitEducation = () => {
+    if(!Object.entries(this.state.education).every(([key, value]) => !!value)) return;
     const newList = [...this.state.educationList, this.state.education];
     this.setState({
       education: {
@@ -81,6 +82,7 @@ export default class Home extends Component {
     });
   };
   handleSubmitWork = () => {
+    if(!Object.entries(this.state.work).every(([key, value]) => !!value)) return;
     const newList = [...this.state.workList, this.state.work];
     this.setState({
       work: {
@@ -95,8 +97,8 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="container mx-auto mt-10 gap-14 w-9/12 h-auto flex flex-col lg:flex-row border-2">
-        <div className="w-10/12 h-auto border">
+      <div className="container mx-auto mt-10 gap-14 w-9/12 h-auto flex flex-col lg:flex-row">
+        <div className="w-10/12 h-auto shadow-xl  ">
           <General
             personal={this.state.personal}
             handleChange={this.handleInfoChange}
@@ -108,8 +110,10 @@ export default class Home extends Component {
           ></Work>
           <Education
             education={this.state.education}
+            educationList={this.state.educationList}
             handleChange={this.handleEducationChange}
             handleSubmit={this.handleSubmitEducation}
+            handleDelete={this.handleDelete}
           ></Education>
         </div>
         <Render
