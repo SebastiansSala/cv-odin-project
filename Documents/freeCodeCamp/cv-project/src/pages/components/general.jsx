@@ -15,10 +15,11 @@ export default class General extends Component {
   };
 
   render() {
-    const { name, tel, email, place, desc } = this.props.personal;
+    const { name, tel, email, place, desc, jobTitle } = this.props.personal;
 
     return (
       <div className="w-10/12 border p-10">
+        <h3 className="text-3xl mb-4">Personal Information</h3>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -26,6 +27,7 @@ export default class General extends Component {
             value={name}
             onChange={this.handleChange}
             className="w-full border-2 border-gray-600 mb-2 px-6 rounded"
+            placeholder="Full Name"
           ></input>
           <input
             type="text"
@@ -33,6 +35,7 @@ export default class General extends Component {
             value={tel}
             onChange={this.handleChange}
             className="w-full border-2 border-gray-600 mb-2 px-6 rounded"
+            placeholder="Telephone"
           ></input>
           <input
             type="email"
@@ -40,6 +43,7 @@ export default class General extends Component {
             value={email}
             onChange={this.handleChange}
             className="w-full border-2 border-gray-600 mb-2 px-6 rounded"
+            placeholder="Email"
           ></input>
           <input
             type="text"
@@ -47,13 +51,23 @@ export default class General extends Component {
             value={place}
             onChange={this.handleChange}
             className="w-full border-2 border-gray-600 mb-2 px-6 rounded"
+            placeholder="Direction"
+          ></input>
+          <input
+            type="text"
+            name="jobTitle"
+            value={jobTitle}
+            onChange={this.handleChange}
+            className="w-full border-2 border-gray-600 mb-2 px-6 rounded"
+            placeholder="Job Title"
           ></input>
           <input
             type="text"
             name="desc"
             value={desc}
             onChange={this.handleChange}
-            className="w-full border-2 border-gray-600 px-6 rounded"
+            className="w-full border-2 border-gray-600 px-6 py-8 rounded"
+            placeholder="Personal Description"
           ></input>
         </form>
       </div>

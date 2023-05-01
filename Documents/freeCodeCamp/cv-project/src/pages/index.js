@@ -3,7 +3,6 @@ import Education from "./components/education";
 import General from "./components/general";
 import Render from "./components/render";
 import Work from "./components/work";
-import Add from "./components/add";
 
 export default class Home extends Component {
   constructor(props) {
@@ -16,6 +15,7 @@ export default class Home extends Component {
         email: "",
         place: "",
         desc: "",
+        jobTitle: ""
       },
       education: {
         descripcion: "",
@@ -29,7 +29,7 @@ export default class Home extends Component {
         company: "",
         dateJob: "",
       },
-      educationCount: 1,
+      workList: []
     };
   }
 
@@ -60,55 +60,62 @@ export default class Home extends Component {
     }));
   };
 
-  handleAddEducation = () => {
-    const newList = [...this.state.educationList, this.state.education];
-    this.setState((prevState) => ({
-      educationCount: prevState.educationCount + 1,
-      educationList: newList,
-    }));
-  };
-
   handleDelete = (id) => {
-    const newList = this.state.educationList.filter((elem, index) => index !== id);
+    const newList = this.state.educationList.filter(
+      (elem, index) => index !== id
+    );
     this.setState({
       educationList: newList,
     });
   };
-  
+
+  handleSubmitEducation = () => {
+    const newList = [...this.state.educationList, this.state.education];
+    this.setState({
+      education: {
+        descripcion: "",
+        places: "",
+        date: "",
+      },
+      educationList: newList,
+    });
+  };
+  handleSubmitWork = () => {
+    const newList = [...this.state.workList, this.state.work];
+    this.setState({
+      work: {
+        position: "",
+        jobDesc: "",
+        company: "",
+        dateJob: ""
+      },
+      workList: newList,
+    });
+  };
 
   render() {
-    const educationComponents = [];
-
-    for (let i = 0; i < this.state.educationCount; i++) {
-      educationComponents.push(
-        <Education
-          key={i}
-          education={this.state.education}
-          handleChange={this.handleEducationChange}
-          handleDelete={this.handleDelete}
-        />
-      );
-    }
-
     return (
       <div className="container mx-auto mt-10 gap-14 w-9/12 h-auto flex flex-col lg:flex-row border-2">
         <div className="w-10/12 h-auto border">
-          <h3 className="text-2xl">Personal Details</h3>
           <General
             personal={this.state.personal}
             handleChange={this.handleInfoChange}
           ></General>
-          <h3>Work Experience</h3>
           <Work
             work={this.state.work}
+            handleSubmit={this.handleSubmitWork}
             handleChange={this.handleWorkChange}
           ></Work>
-          <h3>Education</h3>
-          {educationComponents}
-          <Add handleClick={this.handleAddEducation}></Add>
+          <Education
+            education={this.state.education}
+            handleChange={this.handleEducationChange}
+            handleSubmit={this.handleSubmitEducation}
+          ></Education>
         </div>
         <Render
+          educationList={this.state.educationList}
           personal={this.state.personal}
+          workList={this.state.workList}
           education={this.state.education}
           work={this.state.work}
         ></Render>
