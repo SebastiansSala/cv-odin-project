@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import DeleteButton from "./delete";
+import RenderWorkList from "./renderWorkList";
+
 export default class Work extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: false,
+    };
   }
 
   handleChange = (e) => {
@@ -14,6 +19,15 @@ export default class Work extends Component {
     e.preventDefault();
     this.props.handleSubmit()
   }
+
+  handleModalOpen = () => {
+    this.setState({ showModal: true });
+  };
+
+  handleModalClose = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
     const { position, jobDesc, company, dateJob } = this.props.work;
 
@@ -54,7 +68,10 @@ export default class Work extends Component {
             placeholder="Date"
           ></input>
           <button className="bg-indigo-500 hover:bg-indigo-200 transition mr-8 rounded px-4 py-1">Add</button>
-          <DeleteButton handleDelete={this.props.handleDelete} id={this.props.id} work={this.props.work}></DeleteButton>
+          <DeleteButton handleModalOpen={this.handleModalOpen} id={this.props.id} work={this.props.work}></DeleteButton>
+          {this.state.showModal && (
+          <RenderWorkList workList={this.props.workList} handleModalClose={this.handleModalClose} handleDelete={this.props.handleDelete}></RenderWorkList>
+        )}
         </form>
       </div>
     );

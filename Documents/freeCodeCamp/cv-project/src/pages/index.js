@@ -69,6 +69,15 @@ export default class Home extends Component {
     });
   };
 
+  handleDeleteWork = (id) => {
+    const newList = this.state.workList.filter(
+      (elem, index) => index !== id
+    );
+    this.setState({
+      workList: newList,
+    });
+  }
+
   handleSubmitEducation = () => {
     if(!Object.entries(this.state.education).every(([key, value]) => !!value)) return;
     const newList = [...this.state.educationList, this.state.education];
@@ -107,6 +116,8 @@ export default class Home extends Component {
             work={this.state.work}
             handleSubmit={this.handleSubmitWork}
             handleChange={this.handleWorkChange}
+            handleDelete={this.handleDeleteWork}
+            workList={this.state.workList}
           ></Work>
           <Education
             education={this.state.education}
