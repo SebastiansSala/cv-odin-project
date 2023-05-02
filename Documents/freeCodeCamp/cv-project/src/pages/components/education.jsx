@@ -62,17 +62,27 @@ export default class Education extends Component {
             className="w-full border-2 border-gray-600 mb-2 px-6"
             placeholder="Date"
           ></input>
-          <button className="bg-indigo-500 hover:bg-indigo-200 transition mr-8 rounded px-4 py-1">
-            Add
-          </button>
-          <DeleteButton
-            id={this.props.id}
-            education={this.props.education}
-            handleModalOpen={this.handleModalOpen}
-          ></DeleteButton>
         </form>
+        <button
+          onClick={this.handleSubmit}
+          className="bg-indigo-500 hover:bg-indigo-200 transition mr-8 rounded px-4 py-1"
+        >
+          Add
+        </button>
+        <DeleteButton
+          id={this.props.id}
+          education={this.props.education}
+          handleModalOpen={this.handleModalOpen}
+        ></DeleteButton>
         {this.state.showModal && (
-          <RenderEducationList educationList={this.props.educationList} handleModalClose={this.handleModalClose} handleDelete={this.props.handleDelete}></RenderEducationList>
+          <RenderEducationList
+            education={this.props.education}
+            educationList={this.props.educationList}
+            handleModalClose={this.handleModalClose}
+            handleDelete={this.props.handleDelete}
+            handleChange={this.handleChange}
+            handleUpdate={this.props.handleUpdate}
+          ></RenderEducationList>
         )}
       </div>
     );

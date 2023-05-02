@@ -40,9 +40,9 @@ export default class Render extends Component {
           <h3 className="border-b border-black text-blue-400 text-xl mb-4">
             Work Experience
           </h3>
-          {this.props.workList.map((elem) => {
+          {this.props.workList.map((elem, index) => {
             return (
-              <div className="flex flex-col mt-4">
+              <div className="flex flex-col mt-4" key={index}>
                 <div className="flex justify-between mb-1">
                   <h4>{elem.position}</h4>
                   <div className="flex">

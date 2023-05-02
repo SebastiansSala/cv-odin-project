@@ -7,15 +7,13 @@ export default class RenderWorkList extends Component {
     super(props);
   }
 
-  handleDelete = (id) => {
-    this.props.handleDelete(id);
-  };
-
   render() {
+    const { position, jobDesc, company, dateJob } = this.props.work || {};
+
     return (
       <div className="fixed z-10 inset-0 overflow-y-auto">
         <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-          <div className="fixed inset-0 transition-opacity">
+          <div className="fixed inset-0 transition-opacity" onClick={this.props.handleModalClose}>
             <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
           </div>
 
@@ -36,22 +34,44 @@ export default class RenderWorkList extends Component {
                 <div className="mt-2">
                   {this.props.workList.map((elem, index) => {
                     return (
-                      <div className="flex flex-col mt-4">
-                        <div className="flex justify-between mb-1">
-                          <h4>{elem.position}</h4>
-                          <div className="flex">
-                            <p className="pr-2 border-r-2 border-black">
-                              {elem.company}
-                            </p>
-                            <p className="ml-2 mr-4">{elem.dateJob}</p>
-                            <Update></Update>
-                            <RemoveWork
-                              onClick={() => this.props.handleDelete(index)}
-                            ></RemoveWork>
-                          </div>
-                        </div>
-                        <p className="text-sm">{elem.jobDesc}</p>
-                      </div>
+                      <form key={index} onSubmit={(e)=> e.preventDefault()}>
+                        <input
+                          type="text"
+                          name="position"
+                          placeholder={elem.position}
+                          
+                          onChange={(e) => this.props.handleChange(e)}
+                          className="w-full border-2 border-gray-600 mb-2 px-6"
+                        ></input>
+                        <input
+                          type="text"
+                          name="jobDesc"
+                          placeholder={elem.jobDesc}
+                          
+                          onChange={(e) => this.props.handleChange(e)}
+                          className="w-full border-2 border-gray-600 mb-2 px-6"
+                        ></input>
+                        <input
+                          type="text"
+                          name="company"
+                          
+                          placeholder={elem.company}
+                          onChange={(e) => this.props.handleChange(e)}
+                          className="w-full border-2 border-gray-600 mb-2 px-6"
+                        ></input>
+                        <input
+                          type="text"
+                          name="dateJob"
+                          
+                          placeholder={elem.dateJob}
+                          onChange={(e) => this.props.handleChange(e)}
+                          className="w-full border-2 border-gray-600 mb-2 px-6"
+                        ></input>
+                        <Update onClick={(e) => this.props.handleUpdate(index, e)}></Update>
+                        <RemoveWork
+                          onClick={(e) => this.props.handleDelete(index, e)}
+                        ></RemoveWork>
+                      </form>
                     );
                   })}
                 </div>

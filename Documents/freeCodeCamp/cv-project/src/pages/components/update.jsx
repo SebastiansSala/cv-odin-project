@@ -7,7 +7,7 @@ export default class Update extends Component{
 
     render(){
         return(
-            <button className="bg-blue-400 hover:bg-blue-100 rounded transition px-1 mr-2">Update</button>
+            <button className="bg-blue-400 hover:bg-blue-100 rounded transition px-1 mr-2" onClick={this.props.onClick}>Update</button>
         )
     }
 
