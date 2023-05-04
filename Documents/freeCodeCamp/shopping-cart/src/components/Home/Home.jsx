@@ -1,14 +1,16 @@
 import React from "react";
 import Header from "./Header";
 import Main from "./Main";
+import Footer from "../../Footer";
 
 const Home = () => {
   return (
-    <div className="container mx-auto w-full h-screen flex flex-col">
+    <div className="w-full h-screen">
       <Header></Header>
       <Main></Main>
+      <Footer></Footer>
     </div>
   );
 };
 
-export default Home;
+export default Home

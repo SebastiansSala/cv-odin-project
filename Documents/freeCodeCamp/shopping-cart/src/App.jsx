@@ -1,15 +1,23 @@
-import { useState } from 'react'
-import Home from './components/Home/Home'
-import Main from './components/Home/Main'
+import { useState } from "react";
+import Shop from "./components/Shop/Shop";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Home from "./components/Home/Home";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [itemsCounter, setItemsCounter] = useState(0);
 
   return (
-    <div className="bg-main-background ">
-      <Home></Home>
-    </div>
-  )
+    <BrowserRouter>
+      <div className="bg-gray-900">
+        <div className="container mx-auto w-full flex flex-col min-w-44">
+          <Routes>
+            <Route path="/" Component={Home}></Route>
+            <Route path="/shop" Component={Shop}></Route>
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

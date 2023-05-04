@@ -8,7 +8,11 @@ export default {
   theme: {
     extend: {
       backgroundImage:{
-        'main-background': "url('./src/assets/background-main.jpg')"
+        'keyboards': "url('./src/assets/keyboards.webp')",
+        'switches': "url('./src/assets/switches.jpg')",
+        'keycaps': "url('./src/assets/keycaps.jpg')",
+        "cables": "url('./src/assets/cable.avif')",
+        "main-image": "url('https://keebstore.netlify.app/bg.jpg')",
       }
     },
   },
